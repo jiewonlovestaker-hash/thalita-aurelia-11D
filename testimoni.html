@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html  lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"  content="witdh=device-width, initial-scale=1.0">
+  <title>semua testimoni</title>
+  <link rel="stylesheet"  href="style.css"  />
+</head>
+<body>
+    <header> 
+        <nav> 
+             <a href="index.html">beranda</a>
+ <a href="produk.html">produk</a>
+ <a href="bedah-buku.html">Bedah Buku</a>
+ <a href="testimoni.html">Testimoni</a>
+ <a href="tampil-testimoni.html">Testimoni Pembeli</a>
+</nav>
+</header>
+<main class="formulir">
+  <h2> berikan testimoni anda</h2>
+  <form id="formtestimoni">
+
+    <label for="nama"> nama:</label>
+<input type="text" id="nama" name="nama" required placeholder="nama lengkap">
+
+<label for="nama"> rating:</label>
+<input type="number" name="rating" required placeholder="rating">
+
+<label for="email"> email:</label>
+<input type="email" id="email" name="email" required placeholder="email@example.com">
+
+<label for="pesan">testimoni anda:</label>
+<textarea id="pesan" name="pesan" required placeholder="tulis pengalaman anda..." rows="5"></textarea>
+
+<button type="submit">kirim testimoni</button>
+  </form>
+</main>
+<footer>
+  <p>&copy; 2026 toko buku aurell</p>
+</footer>
+<main class="konfirmasi">
+  <h1>terima kasih!</h1>
+  <h1> testimoni anda telah berhasil dikirim.</h1>
+  <h1><a   href="tampil-testimoni.html"> lihat testimoni yang sudah di input -></a></h1>
+  <section class="testimoni-terkirim"></section>
+  <a href="testimoni.html">kirim testimoni lain</a>
+</main>
+<footer> 
+  <p>&copy; 2026 toko buku aurell</p>
+</footer>
+</body>
+</html>
+<html  lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"  content="witdh=device-width, initial-scale=1.0">
+  <title>semua testimoni - toko buku aurell</title>
+  <link rel="stylesheet"  href="style.css"  />
+</head>
+<main class="formulir">
+  <h2> testimoni-testimoni pembeli :</h2>
+  <div id="daftartestimoni"></div>
+
+  <button id="hapus semua">hapus semua testimoni</button>
+</div>
+
+<section>
+  <div id="daftartestimoni"></div>
+</section>
+</main>
+<footer>
+  <p>&copy;2026 toko buku aurell</p>
+</footer>
+<script>
+document.getElementById('formTestimoni').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const nama = document.getElementById('nama').value;
+  const email = document.getElementById('email').value;
+  const pesan = document.getElementById('pesan').value;
+
+  const dataBaru = { nama, email, pesan };
+
+  // Ambil data dari localStorage
+  const testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || [];
+
+  // Tambahkan testimoni baru
+  testimoniList.push(dataBaru);
+
+  // Simpan kembali ke localStorage
+  localStorage.setItem('testimoniList', JSON.stringify(testimoniList));
+
+  // Arahkan ke halaman konfirmasi
+  window.location.href = 'proses-testimoni.html';
+});
+</script>

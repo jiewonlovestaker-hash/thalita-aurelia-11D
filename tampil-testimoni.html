@@ -1,0 +1,91 @@
+<html lang="id">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="witdh=device-width,initial-scale=1.0">
+        <title> semua testimoni - toko buku aurell</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+
+    <header>
+        <h1> toko buku aurell</h1>
+        <nav>
+            <a href="index.html">beranda</a>
+            <a href="produk.html">katalog</a>
+            <a href="bedah-buku.html">bedah buku</a>
+            <a href="testimoni.html">testimoni</a>
+            <a href="tampil-testimoni.html">testimoni pembeli</a>
+        </nav>
+    </header>
+    <main class="formulir">
+        <h2> testimoni-testimoni pembeli :</h2>
+        <div id="daftar testimoni"></div>
+        <button id="hapus semua">hapus semua testimoni</button>
+    </div>
+    <section>
+        <div id="daftar testimoni"></div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2026 toko buku aurell</p>
+</footer>
+
+<script> 
+    const container= document.getElementById('daftar testimoni');
+    const testimoniList= JSON.parse(localStorage.getItem('testimoniList')) || [];
+    if (testimoniList.length === 0){
+        container.innerHTML ="<p>belum ada testimoni.</p>"
+    } else { 
+        {testimoniList.forEach}((t,i))  
+             const el=document.createElement('div');
+            el.className='testimoni-box';
+            el.innerHTML=`
+            <p><strong>nama;</strong> ${t.nama}</p>
+            <p><strong>email;</strong> ${t.email}</p>
+            <p><strong>pesan;</strong> ${t.pesan}</p>
+        `; 
+        container.appendChild(el);
+    };
+    document.getElementById('hapus semua').onclick=function(){}
+        const konfirmasi = confirm('apakah anda yakin ingin menghapus semua tetsimoni?');
+    if (konfirmasi) {
+        localStorage.removeItem('tetsimoniList');
+        location.reload();
+    }
+    ;
+</script>
+</body>
+</html>
+<script>
+const forEachelement = {
+    container
+}; 
+  document.getElementById('daftarTestimoni');
+  const testimonilist= 
+  JSON.parse(localStorage.getItem('testimonilist')) || [];
+  if (testimonilist.length === 0) {
+    container.innerHTML = "<p>Belum ada testimoni.</p>";
+  } else {
+    testimonilist.forEach((t,i)=>  {
+       const el = document.createElemen('div');
+  el.className = 'testimoni-box';
+  el.innerHTML = `
+  <p><strong>Nama:</strong> ${t.nama}</p>
+  <p><strong>Email:</strong> ${t.email}</p>
+  <p><strong>Pesan:</strong> ${t.pesan}</p>
+  `;
+  container.appendChild(el);
+    }
+  )}; 
+
+document.getElementById('hapusSemua').addEventListener('click',function() {
+  const konfirmasi = confirm('Apakah Anda yakin ingin menghapus semua testimoni?');
+  if (konfirmasi) {
+    localStorage.removeItem("testimoniList");
+    location.reload();
+  }
+});
+</script>
+  </body>
+  </html>
